@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+                     debug="false">
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+			       value="[%d{dd-MM-yyyy HH:mm:ss}] %-5p[%x] - %-26.26c{1} - %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="/tmp/stdout.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="100MB"/>
+		<param name="MaxBackupIndex" value="2"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+			       value="[%d{dd-MM-yyyy HH:mm:ss} ZV:%X{zorgverlenerId} P:%X{patientId}] %-5p[%x] - %-26.26c{1} - %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="RAW" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="DEBUG" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+			       value="%d{dd-MM-yyyy HH:mm:ss} ZV:%X{zorgverlenerId} P:%X{patientId}] %-5p[%x] - %-26.26c{1} - %m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="REQUEST" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/tmp/request.log"/>
+		<param name="datePattern" value="'.'yyyy-MM-dd"/>
+		<param name="append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+			       value="[%d{yyyy-MM-dd HH:mm:ss,SSS} ZV:%X{zorgverlenerId} P:%X{patientId}] %-5p[%x] - %-26.26c{1} - %m%n"/>
+		</layout>
+	</appender>
+
+	<logger name="nl" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="nl.papendorp"
+	        additivity="false">
+		<level value="DEBUG"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="PERFORMANCE" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="org" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="org.objectweb" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="org.springframework" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<!-- op debug zetten om openen/sluiten van transactions te monitoren -->
+	<logger name="org.springframework.orm.hibernate3" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="org.springframework.transaction.interceptor"
+	        additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="oracle" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="org.hibernate.SQL" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="org.hibernate.type" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="com" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<logger name="net" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</logger>
+
+	<!-- REQUEST loggers -->
+	<logger name="nl.protopics.eis.log.EisRequestLogger" additivity="false">
+		<level value="INFO"/>
+		<appender-ref ref="REQUEST"/>
+	</logger>
+
+	<root>
+		<level value="INFO"/>
+		<appender-ref ref="STDOUT"/>
+	</root>
+</log4j:configuration>
