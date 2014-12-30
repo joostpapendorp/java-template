@@ -75,13 +75,6 @@
 		</testResources>
 
 		<plugins>
-			<plugin>
-				<groupId>external.atlassian.jgitflow</groupId>
-				<artifactId>jgitflow-maven-plugin</artifactId>
-				<version>1.0-m1</version>
-				<configuration>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
