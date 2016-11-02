@@ -12,7 +12,7 @@
 		<log4j.version>2.5</log4j.version>
 		<lombok.version>1.16.8</lombok.version>
 
-		<junit.version>4.12</junit.version>
+		<junit.jupiter.version>5.0.0-M2</junit.jupiter.version>
 		<hamcrest.version>2.0.0.0</hamcrest.version>
 		<mockito.version>2.0.2-beta</mockito.version>
 
@@ -46,9 +46,9 @@
 
 		<!-- TEST -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 
