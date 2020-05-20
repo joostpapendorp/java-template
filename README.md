@@ -1,4 +1,6 @@
-# JRP Template
+# JRP Template 
+![](https://www.travis-ci.com/joostpapendorp/java-template.svg?branch=master)
+
 This project is a template for Java projects. Replace this readme with information relevant to your app.
 
 ### Getting started
