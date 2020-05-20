@@ -54,4 +54,5 @@ Run it twice to get rid of the extraneous download logging.
 - [Maven versions plugin](https://www.mojohaus.org/versions-maven-plugin/). To quickly check for new updates for our dependencies, run `mvn versions:display-dependency-updates > docs/temp/dependencies.txt`,
 also twice. This is not foolproof, however, as it might miss updates that require different dependencies. It also 
 recommends snapshots or malformed version 'numbers', but it is quite useful as a regular quick scan.    
-[...]
+- [ADR-log](docs/adr/index.md#tooling). Run the command `adr-log -i` inside `/docs/adr/` to update the index. 
+
