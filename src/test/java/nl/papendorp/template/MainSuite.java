@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.apache.logging.log4j.LogManager.getLogger;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
 @DisplayName( "This app should" )
@@ -25,21 +26,13 @@ class MainSuite
 	}
 
 	@Test
-	@DisplayName( "log its first command line argument" )
-	void app_logs_first_argument()
+	@DisplayName( "log its command line arguments" )
+	void app_logs_arguments()
 	{
-		Main.main( "Test" );
-
-		MatcherAssert.assertThat( appender.messages(), contains( "Hello, Test" ) );
-	}
-
-	@Test
-	@DisplayName( "log all its command line arguments" )
-	void app_logs_all_arguments()
-	{
+		new Main().main( "Test" );
 		Main.main( "test", "suite" );
 
-		MatcherAssert.assertThat( appender.messages(), contains( "Hello, test and suite" ) );
+		assertThat( appender.messages(), contains( "Hello, Test", "Hello, test and suite" ) );
 	}
 
 	@AfterEach
