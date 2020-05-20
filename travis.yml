@@ -1,0 +1,3 @@
+# Travis CI configuration
+# @see https://www.travis-ci.com
+language: java
