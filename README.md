@@ -1,5 +1,6 @@
 # JRP Template 
 ![](https://www.travis-ci.com/joostpapendorp/java-template.svg?branch=master)
+[![codecov](https://codecov.io/gh/joostpapendorp/java-template/branch/master/graph/badge.svg)](https://codecov.io/gh/joostpapendorp/java-template)
 
 This project is a template for Java projects. Replace this readme with information relevant to your app.
 
