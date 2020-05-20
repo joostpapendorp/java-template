@@ -11,6 +11,7 @@ For more information on contributing, see below.
 
 - [ADR-0000](0000-architectural-decision-records.md) - Architectural Decision Records
 - [ADR-0001](0001-test-driven-development.md) - Test Driven Development
+- [ADR-0002](0002-hexagonal-architecture.md) - Hexagonal Architecture - Clean Architecture variant
 
 <!-- adrlogstop -->
 
