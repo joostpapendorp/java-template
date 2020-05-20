@@ -2,4 +2,4 @@
 # @see https://www.travis-ci.com
 language: java
 jdk:
-  - 14.0.1
+  - openjdk14
