@@ -9,18 +9,26 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<properties>
-		<log4j.version>2.5</log4j.version>
-		<lombok.version>1.16.8</lombok.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<junit.jupiter.version>5.0.0-M2</junit.jupiter.version>
-		<hamcrest.version>2.0.0.0</hamcrest.version>
-		<mockito.version>2.0.2-beta</mockito.version>
+		<project.java.version>14</project.java.version>
+		<maven-jar-plugin.start-class>Main</maven-jar-plugin.start-class>
 
-		<project.java.version>1.8</project.java.version>
+		<log4j.version>2.13.3</log4j.version>
+		<lombok.version>1.18.12</lombok.version>
 
-		<version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
-		<version.versions-maven-plugin>2.1</version.versions-maven-plugin>
-		<version.jgitflow-maven-plugin>1.0-m4.3</version.jgitflow-maven-plugin>
+		<junit.jupiter.version>5.7.0-M1</junit.jupiter.version>
+		<hamcrest.version>2.2</hamcrest.version>
+		<mockito.version>3.3.3</mockito.version>
+
+		<dependency-check-maven.version>5.3.2</dependency-check-maven.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+		<jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
+		<versions-maven-plugin.version>2.7</versions-maven-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -54,7 +62,7 @@
 
 		<dependency>
 			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-junit</artifactId>
+			<artifactId>hamcrest</artifactId>
 			<version>${hamcrest.version}</version>
 			<scope>test</scope>
 		</dependency>
@@ -64,49 +72,61 @@
 			<artifactId>mockito-core</artifactId>
 			<version>${mockito.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hamcrest</groupId>
-					<artifactId>hamcrest-all</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<resources>
 			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>false</filtering>
-			</resource>
-			<resource>
-				<directory>src/main/resources-filtered</directory>
-				<filtering>true</filtering>
+				<directory>${basedir}/src/main/resources</directory>
 			</resource>
 		</resources>
 
 		<testResources>
 			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-			<testResource>
-				<directory>src/test/resources-filtered</directory>
-				<filtering>true</filtering>
+				<directory>${basedir}/src/test/resources</directory>
 			</testResource>
 		</testResources>
+
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${version.maven-compiler-plugin}</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>${project.java.version}</source>
-					<target>${project.java.version}</target>
+					<release>${project.java.version}</release>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<includes>
+						<include>**/**Suite.*</include>
+						<include>**/**Test.*</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>${maven-jar-plugin.start-class}</mainClass>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>${version.versions-maven-plugin}</version>
+				<version>${versions-maven-plugin.version}</version>
 				<configuration>
 					<allowSnapshots>false</allowSnapshots>
 					<allowMajorUpdates>true</allowMajorUpdates>
@@ -114,12 +134,50 @@
 					<allowIncrementalUpdates>true</allowIncrementalUpdates>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>enforce-maven</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireMavenVersion>
+									<version>3.1.0</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>external.atlassian.jgitflow</groupId>
 				<artifactId>jgitflow-maven-plugin</artifactId>
-				<version>${version.jgitflow-maven-plugin}</version>
+				<version>${jgitflow-maven-plugin.version}</version>
 				<configuration>
 				</configuration>
+			</plugin>
+
+			<!-- security plugin, run with "mvn verify" -->
+			<!-- https://github.com/jeremylong/DependencyCheck -->
+			<!-- https://owasp.org/www-project-dependency-check/ -->
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>${dependency-check-maven.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
