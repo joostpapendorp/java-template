@@ -49,6 +49,10 @@ local.properties
 ### Maven ###
 target/
 
+### NPM ###
+package-lock.json
+node_modules/
+
 # Checkstyle #
 .checkstyle
 /hibernateClassesAuditOverview.txt
