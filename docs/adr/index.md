@@ -10,6 +10,7 @@ For more information on contributing, see below.
 <!-- adrlog -- Regenerate the content by using "adr-log -i". You can install it via "npm install -g adr-log" -->
 
 - [ADR-0000](0000-architectural-decision-records.md) - Architectural Decision Records
+- [ADR-0001](0001-test-driven-development.md) - Test Driven Development
 
 <!-- adrlogstop -->
 
