@@ -1,7 +1,7 @@
 # Getting started.
 Hi and welcome to the project! 
 
-This guide is meant to get you up and running as efficiently as possible. It provides 
+This guide helps you to get up and running as efficiently as possible. It provides 
 step-by-step instructions for installing, running and deploying [...].
 
 As with all guides, this is a continual work-in-progress, as the app changes over time. 
@@ -9,7 +9,7 @@ As with all guides, this is a continual work-in-progress, as the app changes ove
 **Please make sure to document your installation process and update this guide where needed!** 
 
 As the latest user of this guide *you* will become the expert  on the current installation process. By maintaining this 
-guide, you help your future colleagues to contribute.
+guide, you help our future collaborators to contribute.
 
 Enjoy and happy contributing,  
  Joost Papendorp, march 2020
@@ -23,11 +23,12 @@ release, since Oracle changed the licensing with the LTS 11 release, making it u
 commercial license. OpenJDK releases remain all-purpose.
 
 ##### IDE
-The preferred IDE for this project is [Intellij](https://www.jetbrains.com/idea/). VX has commercial licenses available; 
-ask your manager. It's fine if you prefer to use a different IDE, but then you are on your own.
+The preferred IDE for this project is [Intellij](https://www.jetbrains.com/idea/). It's fine if you prefer to use a 
+different IDE, but then you are on your own.
 
 ##### SCM
-We use [GIT](https://git-scm.com/downloads) as our versioning tool. A visual tool, such as [Sourcetree](https://www.sourcetreeapp.com/) is recommended.  
+We use [GIT](https://git-scm.com/downloads) as our versioning tool. In addition, we recommend using a visualization
+tool, such as [Sourcetree](https://www.sourcetreeapp.com/).  
 
 ##### Maven
 [Maven 3.1.0 or above](https://maven.apache.org/download.cgi) is required to build the project.
@@ -35,7 +36,7 @@ We use [GIT](https://git-scm.com/downloads) as our versioning tool. A visual too
 ### Accounts
 In addition, you require access to the following:
 - [Issue tracker]([...])
-[...]
+- [...]
 
 ### Build and run locally
 [...]
@@ -55,4 +56,5 @@ Run it twice to get rid of the extraneous download logging.
 also twice. This is not foolproof, however, as it might miss updates that require different dependencies. It also 
 recommends snapshots or malformed version 'numbers', but it is quite useful as a regular quick scan.    
 - [ADR-log](docs/adr/index.md#tooling). Run the command `adr-log -i` inside `/docs/adr/` to update the index. 
+- [Lombok](https://projectlombok.org/). Requires annotation processing to be enabled.
 
