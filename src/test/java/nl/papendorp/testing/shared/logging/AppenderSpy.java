@@ -1,4 +1,4 @@
-package nl.papendorp.template.testing.shared.logging;
+package nl.papendorp.testing.shared.logging;
 
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.appender.AbstractAppender;

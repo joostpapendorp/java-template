@@ -1,6 +1,6 @@
 package nl.papendorp.template;
 
-import nl.papendorp.template.testing.shared.logging.AppenderSpy;
+import nl.papendorp.testing.shared.logging.AppenderSpy;
 import org.apache.logging.log4j.core.Logger;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.AfterEach;
