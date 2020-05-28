@@ -3,27 +3,23 @@ We use [Markdown Architectural Decision Records](https://adr.github.io/madr/) to
 but we do not require their use.
 
 ## Context and Problem Statement
-
 - How should we document design choices? 
 - Should we use tooling?
 
 ## Decision Drivers
-
 * Project is under documented
 * The project has no dedicated team: Contributors are temporary and have varying backgrounds
 * Existing choices prove hard to fathom. 
 
 ## Considered Options
-
 * Status quo / Git blame
 * Confluence
 * Various ADR-templates
 
 ## Decision Outcome
-
 Chosen to use architectural decision records using the MADR-template, because
 - The project needs a structural way conserve history. 
-- ADR live inside the codebase.
+- ADRs live inside the codebase.
 - ADRs provide little overhead.
 
 Chosen MADR over other templates, because:
@@ -41,7 +37,7 @@ Chosen to leave tooling optional, because:
 ## Pros and Cons of the Options
 
 ### Status Quo
-* (+) No maintanance cost.
+* (+) No maintenance cost.
 * (-) Information loss
 * (-) risk of undoing choices/ re-introducing resolved bugs
 * (-) project becomes hard to grasp for new members 
@@ -99,9 +95,8 @@ Yes. MD template is not final.
 Yes, but optional. Tooling is not required, but adds convenience.
 
 ## Links 
-https://adr.github.io/madr/  
-https://github.com/joelparkerhenderson/architecture_decision_record#adr-file-name-conventions  
-https://github.com/adr/adr-tools/  
-https://docs.microsoft.com/en-gb/windows/wsl/install-win10?redirectedfrom=MSDN  
-https://github.com/adr/adr-tools/blob/patch-1/INSTALL.md  
-https://github.com/npryce/adr-tools  
+- [MADR](https://adr.github.io/madr/)  
+- [Collection of different ADR types](https://github.com/joelparkerhenderson/architecture_decision_record#adr-file-name-conventions)  
+- [Tooling](https://github.com/adr/adr-tools/)  
+- [More tooling](https://github.com/adr/adr-tools/blob/patch-1/INSTALL.md)  
+- [Yet more tooling](https://github.com/npryce/adr-tools)  
