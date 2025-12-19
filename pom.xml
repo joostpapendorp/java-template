@@ -15,7 +15,7 @@
 		<project.java.version>17</project.java.version>
 		<maven-jar-plugin.start-class>Main</maven-jar-plugin.start-class>
 
-		<log4j.version>2.18.0</log4j.version>
+		<log4j.version>2.25.3</log4j.version>
 		<lombok.version>1.18.24</lombok.version>
 
 		<junit.jupiter.version>5.9.0</junit.jupiter.version>
